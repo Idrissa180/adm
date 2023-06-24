@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Details de pack</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <img alt="pack" [src]="cardsData.img" />
+  <h1>{{cardsData.title}}</h1>
+
+  <p>
+    ce pack vous offre des pubs de 30 spot chaque jour entre {{cardsData.startDay}} et {{cardsData.endDay}}
+  </p>
+  <p>
+    {{cardsData.body}}
+  </p>
+  <h3>Frais</h3>
+  <p>
+    1 semaine: {{cardsData.price_1_week}}DH
+  </p>
+  <p>
+    2 semaines: {{cardsData.price_1_week}}DH
+  </p>
+  <ion-button expand="block" (click)="onClick()">Voir la disponibilité</ion-button>
+</ion-content>

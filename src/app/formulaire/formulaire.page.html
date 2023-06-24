@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>formulaire</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-card>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+        <p class="title_form">{{packName}}</p>
+      </ion-item>
+      <p class="form_span">Du {{formData.startWeek}} au {{formData.endWeek}}</p>
+        
+        <ion-item>
+          <ion-label position="floating">Nom entreprise</ion-label>
+          <ion-input [(ngModel)]="formData.entreprise" name="entreprise"></ion-input>
+        </ion-item>
+
+        <!-- <ion-item>
+          <ion-label>Enregistrement vocal</ion-label>
+          <ion-button (click)="startRecording()" expand="full">Commencer l'enregistrement</ion-button>
+          <ion-button *ngIf="isRecording" (click)="stopRecording()" expand="full">Arrêter l'enregistrement</ion-button>
+        </ion-item>
+
+        <ion-item>
+          <audio *ngIf="recordedAudio" [src]="recordedAudio" controls></audio>
+        </ion-item> -->
+
+        <ion-select [(ngModel)]="semaine" label="Default label" placeholder="Nombre de semaines">
+          <ion-select-option >Choisi le nombre de semaine</ion-select-option>
+          <ion-select-option value="1">1</ion-select-option>
+          <ion-select-option value="2">2</ion-select-option>
+        </ion-select>
+
+        <ion-button expand="full" (click)="submitForm()" class="submit_btn">Soumettre</ion-button>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

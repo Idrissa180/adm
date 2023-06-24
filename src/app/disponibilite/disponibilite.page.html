@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Disponibilite</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card
+    *ngFor="let card of cardsData"
+    color="secondary"
+    [ngClass]="{ 'ion-color-danger': card.available }"
+    class="dispo"
+    (click)="navigateToPage(card)"
+  >
+    <ion-icon *ngIf="card.available" name="sad-sharp" class="icon"></ion-icon>
+    <ion-icon
+      *ngIf="!card.available"
+      name="happy-sharp"
+      class="icon smile"
+    ></ion-icon>
+
+    <p>Du {{card.startWeek}} au {{card.endWeek}}</p>
+  </ion-card>
+  <ion-alert
+    [isOpen]="isAlertOpen"
+    header="Alert"
+    subHeader="Message important"
+    message="Le pack n'est pas disponible pour la semaine choisi!"
+    [buttons]="alertButtons"
+    (didDismiss)="setClose()"
+  ></ion-alert>
+</ion-content>

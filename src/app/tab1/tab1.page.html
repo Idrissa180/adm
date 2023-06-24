@@ -1,17 +1,25 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Home
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  
+  <ion-title size="large">Liste des pack</ion-title>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-card *ngFor="let card of cardsData" [routerLink]="['/details', card._id]">
+    <img alt="pack" [src]="card.img" />
+    <ion-card-header>
+      <ion-card-title>{{card.title}}</ion-card-title>
+      <ion-card-subtitle>Pub du {{card.startDay}} au {{card.endDay}}</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <p>1 semaine: {{card.price_1_week}}DH</p>
+      <p>2 semaine: {{card.price_2_week}}DH</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
