@@ -14,6 +14,7 @@ export class LoginPage implements OnInit {
     email:"",
     password:""
   };
+  //token 
   authToken: any;
 
   constructor() {}
