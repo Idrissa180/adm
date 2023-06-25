@@ -28,8 +28,8 @@ export class DisponibilitePage implements OnInit {
 
   navigateToPage(card: any) {
     if (!card.available) {
-      console.log("ok")
-      this.router.navigate(['/formulaire', this.idPack, card.startWeek, card.endWeek]);
+      console.log(card)
+      this.navCtrl.navigateForward(['/formulaire', this.idPack, card.startWeek, card.endWeek]);
     }else{
       this.isAlertOpen = true;
     }

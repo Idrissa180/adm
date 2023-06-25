@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Notifications</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+        <ion-card *ngFor="let card of notifs">
+          <ion-card-header>
+            <ion-card-title>Pack Classique</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-badge [color]="getStatusColor(card.status)">{{card.status}}</ion-badge>
+          </ion-card-content>
+          <ion-footer>
+            <ion-button expand="full" [color]="getStatusColor(card.status)">
+              <ion-icon name="cart" slot="start"></ion-icon>
+              {{ getButtonText(card.status) }}
+            </ion-button>
+          </ion-footer>
+        </ion-card>
+</ion-content>

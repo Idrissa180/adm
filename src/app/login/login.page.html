@@ -1,0 +1,62 @@
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-label color="white" class="ion-margin ion-padding-start">
+      Bienvenue مرحبا بك
+      <p>
+        <ion-text color="black" class="ion-margin ion-padding-start"
+          >à AdMars في أد مارس</ion-text
+        >
+      </p>
+    </ion-label>
+  </ion-grid>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-row>
+    <ion-fab vertical="top" horizontal="end">
+      <ion-fab-button color="danger" (click)="signIn()">
+        <ion-icon name="arrow-forward-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+    <ion-list lines="full">
+      <ion-list-header class="ion-margin">
+        <ion-label>Login</ion-label>
+      </ion-list-header>
+      <ion-item-group class="ion-margin-horizontal ion-margin-bottom">
+          <ion-item>
+            <ion-label floating>Email</ion-label>
+            <ion-input
+              [(ngModel)]="form.email"
+              name="email"
+              placeholder="Email"
+              type="email"
+            ></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Mot de passe</ion-label>
+            <ion-input
+              [(ngModel)]="form.password"
+              name="password"
+              placeholder="Mot de passe"
+              type="password"
+            ></ion-input>
+          </ion-item>
+
+          <div id="sign-in-button" ></div>
+
+          <div class="ion-margin-vertical">
+            <ion-text>
+              <ion-text class="error" color="danger">
+                * Veuillez saisir votre mot de passe.
+              </ion-text>
+              <ion-text class="error" color="danger">
+                الرجاء إدخال كلمة المرور الخاصة بك *
+              </ion-text>
+            </ion-text>
+          </div>
+      </ion-item-group>
+    </ion-list>
+  </ion-row>
+</ion-footer>

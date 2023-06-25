@@ -17,6 +17,14 @@ const routes: Routes = [
   {
     path: 'formulaire/:id/:startWeek/:endWeek',
     loadChildren: () => import('./formulaire/formulaire.module').then( m => m.FormulairePageModule)
+  },
+  {
+    path: 'notifications',
+    loadChildren: () => import('./notification/notification.module').then( m => m.NotificationPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   }
 ];
 @NgModule({

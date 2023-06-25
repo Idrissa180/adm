@@ -20,12 +20,24 @@ const routes: Routes = [
         loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
       },
       {
+        path: 'notifications',
+        loadChildren: () => import('../notification/notification.module').then( m => m.NotificationPageModule)
+      },
+      {
         path: 'disponibilite/:id',
         loadChildren: () => import('../disponibilite/disponibilite.module').then( m => m.DisponibilitePageModule)
       },
       {
+        path: 'formulaire/:id/:startWeek/:endWeek',
+        loadChildren: () => import('../formulaire/formulaire.module').then( m => m.FormulairePageModule)
+      },
+      {
         path: 'details/:id',
         loadChildren: () => import('../details/details.module').then( m => m.DetailsPageModule)
+      },
+      {
+        path: 'login',
+        loadChildren: () => import('../login/login.module').then( m => m.LoginPageModule)
       },
       {
         path: '',
