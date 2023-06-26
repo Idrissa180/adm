@@ -31,7 +31,7 @@ const routes: Routes = [
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
   {
-    path: 'otp',
+    path: 'otp/:number',
     loadChildren: () => import('./otp/otp.module').then( m => m.OtpPageModule)
   }
 ];

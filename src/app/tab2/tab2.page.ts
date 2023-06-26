@@ -25,7 +25,6 @@ export class Tab2Page {
 
   async ionViewDidEnter() {
     const token = window.localStorage.getItem("token");
-    console.log(token)
     this.authToken = token !== null ? JSON.parse(token) : null;
     if(!this.authToken ){
       this.router.navigate(['/login']);

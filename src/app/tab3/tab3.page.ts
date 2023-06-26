@@ -21,7 +21,6 @@ export class Tab3Page {
 
   ngOnInit() {
     this.ionViewDidEnter()
-    console.log(this.authToken)
   }
   
   async logout() {

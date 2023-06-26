@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
 import axios from "axios";
 
 @Component({
@@ -9,16 +10,22 @@ import axios from "axios";
 })
 export class NotificationPage implements OnInit {
 
-  userId="";
+  authToken: any;
   notifs:any;
 
-  constructor(private navCtrl: NavController) { }
+  constructor(private navCtrl: NavController, private router: Router) { }
+
+  async ionViewDidEnter() {
+    const token = window.localStorage.getItem("token");
+    this.authToken = token !== null ? JSON.parse(token) : null;
+    if(!this.authToken ){
+      this.router.navigate(['/login']);
+    }
+  }
 
   ngOnInit() {
-    this.userId="648074311df97e4992c4832a";
-
-    this.getNotif(this.userId)
-    
+    this.ionViewDidEnter()
+    this.getNotif(this.authToken._id)  
   }
 
   getStatusColor(status: string): string {
@@ -56,7 +63,6 @@ export class NotificationPage implements OnInit {
         console.log(response.data)
       })
       .catch(error => {
-        // Gérer les erreurs
         console.error(error);
       });
   }

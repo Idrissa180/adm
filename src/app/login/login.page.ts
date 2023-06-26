@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import axios from "axios";
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,18 @@ export class LoginPage implements OnInit {
   };
   authToken: any;
 
-  constructor(private router: Router) {}
+
+  constructor(private router: Router, private toastController: ToastController) {}
+
+  async presentToast(position: 'top' | 'middle' | 'bottom') {
+    const toast = await this.toastController.create({
+      message: "une erreur s'est produite, Veuillez veriéfiez vos informations!",
+      duration: 1500,
+      position: position,
+    });
+
+    await toast.present();
+  }
 
   async ionViewDidEnter() {
     const token = window.localStorage.getItem("token");
@@ -38,7 +50,7 @@ export class LoginPage implements OnInit {
     window.localStorage.setItem("token",JSON.stringify(this.authToken))
     this.router.navigate(['/tabs/tab1']);
     } catch(error){
-      console.error(error);
+      this.presentToast('top')
     };
   }
 
