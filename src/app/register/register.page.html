@@ -14,16 +14,43 @@
 <ion-footer class="ion-no-border">
   <ion-row>
     <ion-fab vertical="top" horizontal="end">
-      <ion-fab-button color="danger" (click)="signIn()">
+      <ion-fab-button color="danger" (click)="signUp()">
         <ion-icon name="arrow-forward-outline"></ion-icon>
       </ion-fab-button>
     </ion-fab>
 
     <ion-list lines="full">
       <ion-list-header class="ion-margin">
-        <ion-label>Connexion</ion-label>
+        <ion-label>Inscription</ion-label>
       </ion-list-header>
       <ion-item-group class="ion-margin-horizontal ion-margin-bottom">
+          <ion-item>
+            <ion-label floating>Nom</ion-label>
+            <ion-input
+              [(ngModel)]="form.firstname"
+              name="firstname"
+              placeholder="votre nom de famille"
+              type="text"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Prénom</ion-label>
+            <ion-input
+              [(ngModel)]="form.lastname"
+              name="lastname"
+              placeholder="votre prénom"
+              type="text"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Tel</ion-label>
+            <ion-input
+            [(ngModel)]="form.number"
+            name="number"
+            placeholder="Votre numéro de tel"
+            type="text"
+            ></ion-input>
+          </ion-item>
           <ion-item>
             <ion-label floating>Email</ion-label>
             <ion-input
@@ -44,17 +71,12 @@
             ></ion-input>
           </ion-item>
 
-          <div id="sign-in-button" ></div>
+          <div id="sign-in-button"></div>
 
           <div class="ion-margin-vertical">
             <ion-text>
-              vous n'avez pas de compte? <a routerLink="/register">register</a>
+              vous avez déja un compte? <a routerLink="/login">Login</a>
             </ion-text>
-            <p>
-              <ion-text>
-                <a routerLink="/register">mot de passe oublié?</a>
-              </ion-text>
-            </p>
           </div>
       </ion-item-group>
     </ion-list>

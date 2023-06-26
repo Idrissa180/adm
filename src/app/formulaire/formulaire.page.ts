@@ -3,7 +3,6 @@ import { NavController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import axios from "axios"
 import { ToastController } from '@ionic/angular';
-import { Media, MediaObject } from '@awesome-cordova-plugins/media/ngx';
 
 
 @Component({
@@ -27,11 +26,10 @@ export class FormulairePage implements OnInit {
   packPrice2="";
   semaine="";
 
-  constructor(private navCtrl: NavController,private route: ActivatedRoute, private toastController: ToastController, private media: Media) { }
+  constructor(private navCtrl: NavController,private route: ActivatedRoute, private toastController: ToastController) { }
 
   
   ngOnInit() {
-    const file: MediaObject = this.media.create('file.mp3');
     console.log(this.formData)
     this.route.paramMap.subscribe(params => {
       // Récupérer les paramètres de l'URL et affecter les valeurs aux données du formulaire

@@ -21,26 +21,16 @@
 
     <ion-list lines="full">
       <ion-list-header class="ion-margin">
-        <ion-label>Connexion</ion-label>
+        <ion-label>Validation du numéro</ion-label>
       </ion-list-header>
       <ion-item-group class="ion-margin-horizontal ion-margin-bottom">
           <ion-item>
-            <ion-label floating>Email</ion-label>
+            <ion-label floating>OTP</ion-label>
             <ion-input
-              [(ngModel)]="form.email"
-              name="email"
-              placeholder="Email"
-              type="email"
-            ></ion-input>
-          </ion-item>
-
-          <ion-item>
-            <ion-label floating>Mot de passe</ion-label>
-            <ion-input
-              [(ngModel)]="form.password"
-              name="password"
-              placeholder="Mot de passe"
-              type="password"
+              [(ngModel)]="form.otp"
+              name="otp"
+              placeholder="entrez le code envoyer"
+              type="text"
             ></ion-input>
           </ion-item>
 

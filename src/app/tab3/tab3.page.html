@@ -11,7 +11,7 @@
     <ion-avatar class="avatar_profile">
       <img src="assets/imgs/man-111.jpg" />
     </ion-avatar>
-    <ion-label color="primary">test test</ion-label>
+    <ion-label color="primary">{{authToken.firstname}} {{authToken.lastname}}</ion-label>
   </div>
 
   <ion-list>
@@ -36,7 +36,7 @@
     </ion-item>
   </ion-list>
 
-  <ion-button fill="clear" class="ion-margin" color="danger" >
+  <ion-button fill="clear" class="ion-margin" color="danger" (click)="logout()">
     <ion-icon name="log-out" slot="start"></ion-icon> Logout
   </ion-button>
 </ion-content>

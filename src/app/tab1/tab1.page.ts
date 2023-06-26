@@ -8,11 +8,22 @@ import axios from 'axios';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
+  authToken: any;
+
   cardsData: {_id: string, title: string, img: string ,startDay: string, endDay:string, price_1_week: string, price_2_week: string}[] = [];
 
   constructor(private router: Router) {}
 
+  async ionViewDidEnter() {
+    const token = window.localStorage.getItem("token");
+    this.authToken = token !== null ? JSON.parse(token) : null;
+    if(!this.authToken ){
+      this.router.navigate(['/login']);
+    }
+  }
+
   ngOnInit() {
+    this.ionViewDidEnter()
     this.getData();
   }
 
