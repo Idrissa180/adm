@@ -53,7 +53,7 @@ export class OtpPage implements OnInit {
     window.localStorage.setItem("token",JSON.stringify(this.authToken))
     this.router.navigate(['/tabs/tab1']);
     } catch(error){
-      this.presentToast('top')
+      console.error(error);
     };
   }
 

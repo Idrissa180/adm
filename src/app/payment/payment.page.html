@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Page de paiement</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding form_container">
+  <ion-card>
+    <ion-card-content>
+      <ion-list>
+        <div>
+          <img src="{{photo}}"/>
+        </div>
+
+        <ion-button (click)="choosePhoto()">Choisi la photo</ion-button>
+
+        <ion-select
+          [(ngModel)]="formData.paymentMethode"
+          label="Methode de paiement"
+          placeholder="Methode de paiement"
+        >
+          <ion-select-option>Methode de paiement</ion-select-option>
+          <ion-select-option value="wafacach">1</ion-select-option>
+          <ion-select-option value="2">2</ion-select-option>
+        </ion-select>
+
+        <ion-button expand="full" (click)="submitForm()" class="submit_btn"
+          >Soumettre</ion-button
+        >
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

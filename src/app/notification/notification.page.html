@@ -12,10 +12,20 @@
           <ion-card-content>
             <ion-badge [color]="getStatusColor(card.status)">{{card.status}}</ion-badge>
           </ion-card-content>
-          <ion-footer>
-            <ion-button expand="full" [color]="getStatusColor(card.status)">
+          <ion-footer *ngIf="card.status === 'waiting-payment'">
+            <ion-button expand="full" (click)="goPayment(card)"  [color]="getStatusColor(card.status)"  >
               <ion-icon name="cart" slot="start"></ion-icon>
-              {{ getButtonText(card.status) }}
+              Payer
+            </ion-button>
+          </ion-footer>
+          <ion-footer  *ngIf="card.status === 'propose-audio'">
+            <ion-button expand=""  color="success" (click)="Accepter(card)" >
+              <ion-icon name="checkbox-outline"></ion-icon>
+              Accepter(+500DH)
+            </ion-button>
+            <ion-button expand="" color="danger">
+              <ion-icon name="close-outline"></ion-icon>
+              refuser
             </ion-button>
           </ion-footer>
         </ion-card>

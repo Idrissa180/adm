@@ -33,6 +33,10 @@ const routes: Routes = [
   {
     path: 'otp/:number',
     loadChildren: () => import('./otp/otp.module').then( m => m.OtpPageModule)
+  },
+  {
+    path: 'payment/:id',
+    loadChildren: () => import('./payment/payment.module').then( m => m.PaymentPageModule)
   }
 ];
 @NgModule({

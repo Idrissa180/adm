@@ -3,6 +3,7 @@ import { NavController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import axios from "axios"
 import { ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,10 +12,11 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./formulaire.page.scss'],
 })
 export class FormulairePage implements OnInit {
+  authToken: any;
 
   formData = {
     packId: '',
-    userId: 'test',
+    userId: '',
     startWeek: '',
     endWeek: '',
     entreprise: '',
@@ -26,11 +28,11 @@ export class FormulairePage implements OnInit {
   packPrice2="";
   semaine="";
 
-  constructor(private navCtrl: NavController,private route: ActivatedRoute, private toastController: ToastController) { }
+  constructor(private navCtrl: NavController,private route: ActivatedRoute, private toastController: ToastController, private router: Router) { }
 
   
   ngOnInit() {
-    console.log(this.formData)
+    this.ionViewDidEnter()
     this.route.paramMap.subscribe(params => {
       // Récupérer les paramètres de l'URL et affecter les valeurs aux données du formulaire
       const id = params.get('id');
@@ -41,6 +43,15 @@ export class FormulairePage implements OnInit {
       this.formData.endWeek = endWeek !== null ? endWeek : '';
       this.getPack(id !== null ? id : '')
     });
+    this.formData.userId= this.authToken._id
+  }
+
+  async ionViewDidEnter() {
+    const token = window.localStorage.getItem("token");
+    this.authToken = token !== null ? JSON.parse(token) : null;
+    if(!this.authToken ){
+      this.router.navigate(['/login']);
+    }
   }
 
   async presentToast(position: 'top' | 'middle' | 'bottom') {
@@ -71,9 +82,8 @@ export class FormulairePage implements OnInit {
       });
   }
   newBooking(id: string) {
-    axios.post(`https://api-ydays.onrender.com//api/bookings/${id}`, this.formData)
+    axios.post(`https://api-ydays.onrender.com/api/bookings/${id}`, this.formData)
       .then(response => {
-        console.log(response)
         this.presentToast('top')
       })
       .catch(error => {
@@ -88,10 +98,8 @@ export class FormulairePage implements OnInit {
     } else if(this.semaine==="2"){
       this.formData.totalPrice=this.packPrice2
     }
-
     this.newBooking(this.formData.packId)
-    // Effectuer des actions lors de la soumission du formulaire
-    console.log('Formulaire soumis :', this.formData);
+    this.router.navigate(['/tabs/tab1']);
   }
 
 }
