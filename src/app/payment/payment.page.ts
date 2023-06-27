@@ -135,9 +135,10 @@ export class PaymentPage implements OnInit {
     // };
 
 
-    axios.post(`https://api-ydays.onrender.com/api/bookings/received/${id}`, this.formData)
+    axios.put(`https://api-ydays.onrender.com/api/bookings/received/${id}`, this.formData)
       .then(response => {
         this.presentToast('top')
+        this.router.navigate(['/tabs/tab1']);
       })
       .catch(error => {
         console.error(error);
@@ -147,7 +148,6 @@ export class PaymentPage implements OnInit {
   submitForm() {
 
     this.Payment(this.packId)
-    this.router.navigate(['/tabs/tab1']);
   }
 
 }

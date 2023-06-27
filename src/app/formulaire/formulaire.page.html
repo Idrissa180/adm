@@ -23,15 +23,15 @@
           <ion-input [(ngModel)]="formData.entreprise" name="entreprise"></ion-input>
         </ion-item>
 
-        <!-- <ion-item>
-          <ion-label>Enregistrement vocal</ion-label>
-          <ion-button (click)="startRecording()" expand="full">Commencer l'enregistrement</ion-button>
-          <ion-button *ngIf="isRecording" (click)="stopRecording()" expand="full">Arrêter l'enregistrement</ion-button>
+        <ion-item>
+          <ion-label>Enrégistrement vocal</ion-label>
+          <ion-button><ion-icon name="recording-outline"></ion-icon></ion-button>
+          <ion-button><ion-icon name="stop-circle-outline"></ion-icon></ion-button>
         </ion-item>
 
         <ion-item>
-          <audio *ngIf="recordedAudio" [src]="recordedAudio" controls></audio>
-        </ion-item> -->
+          <audio  controls></audio>
+        </ion-item>
 
         <ion-select [(ngModel)]="semaine" label="Nombre de semaines" placeholder="Nombre de semaines">
           <ion-select-option >Choisi le nombre de semaine</ion-select-option>

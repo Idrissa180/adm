@@ -48,6 +48,7 @@ export class LoginPage implements OnInit {
     const response = await axios.post(`https://api-ydays.onrender.com/api/auth/login`, this.form)
     this.authToken=response.data
     window.localStorage.setItem("token",JSON.stringify(this.authToken))
+    window.localStorage.setItem("lang","fr")
     this.router.navigate(['/tabs/tab1']);
     } catch(error){
       this.presentToast('top')

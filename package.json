@@ -37,6 +37,7 @@
     "@cloudinary/angular-5.x": "^1.5.3",
     "@ionic/angular": "^7.0.0",
     "@ionic/storage": "^4.0.0",
+    "@ngx-translate/core": "^15.0.0",
     "axios": "^1.4.0",
     "cloudinary": "^1.37.3",
     "cloudinary-core": "^2.13.0",
