@@ -51,7 +51,7 @@ export class RegisterPage implements OnInit {
         window.localStorage.setItem("token",JSON.stringify(this.authToken))
         this.router.navigate(['/tabs/tab1']);
       }else{
-        await axios.post(`http://localhost:5000/api/auth/register`, this.form)
+        await axios.post(`https://api-ydays.onrender.com/api/auth/register`, this.form)
         this.router.navigate(['/otp', this.form.number]);
       }
     } catch(error){
