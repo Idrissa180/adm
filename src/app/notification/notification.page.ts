@@ -81,7 +81,7 @@ export class NotificationPage implements OnInit {
   }
 
   Accepter(card: any){
-    axios.put(`http://localhost:5000/api/bookings/${card._id}`, {status: "waiting-payment"})
+    axios.put(`https://api-ydays.onrender.com/api/bookings/${card._id}`, {status: "waiting-payment"})
       .then(response => {
         this.presentToast('top')
       })
@@ -90,7 +90,7 @@ export class NotificationPage implements OnInit {
       });
   }
   Refuse(card: any){
-    axios.put(`http://localhost:5000/api/bookings/${card._id}`, {status: "canceled"})
+    axios.put(`https://api-ydays.onrender.com/api/bookings/${card._id}`, {status: "canceled"})
       .then(response => {
         this.presentToastR('top')
       })
@@ -100,7 +100,7 @@ export class NotificationPage implements OnInit {
   }
   
   getNotif(id: string) {
-    axios.get(`http://localhost:5000/api/bookings/notif/${id}`)
+    axios.get(`https://api-ydays.onrender.com/api/bookings/notif/${id}`)
       .then(response => {
         this.notifs=response.data
         console.log(response.data)
